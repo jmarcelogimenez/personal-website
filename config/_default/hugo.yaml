@@ -6,7 +6,7 @@
 # Website name (set in params.yaml under hugoblox.branding.name)
 title: ''
 # Website URL
-baseURL: 'https://example.com/'
+baseURL: 'https://jmarcelogimenez.github.io/personal-website/'
 
 ############################
 ## LANGUAGE
@@ -62,4 +62,14 @@ markup:
 security:
   _merge: deep
 sitemap:
-  _merge: deep
+  _merge: deep  
+  exec:
+    # Preserve Hugo's default command allowlist and add the Tailwind v4 CLI
+    # used by the Hugo Blox CSS pipeline.
+    allow:
+      - '^(dart-)?sass$'
+      - '^go$'
+      - '^git$'
+      - '^node$'
+      - '^postcss$'
+      - '^tailwindcss$'
