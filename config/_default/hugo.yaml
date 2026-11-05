@@ -61,8 +61,6 @@ markup:
     lineNos: false
 security:
   _merge: deep
-sitemap:
-  _merge: deep  
   exec:
     # Preserve Hugo's default command allowlist and add the Tailwind v4 CLI
     # used by the Hugo Blox CSS pipeline.
@@ -73,3 +71,5 @@ sitemap:
       - '^node$'
       - '^postcss$'
       - '^tailwindcss$'
+sitemap:
+  _merge: deep
