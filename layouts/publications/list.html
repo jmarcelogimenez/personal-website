@@ -1,0 +1,29 @@
+{{ define "main" }}
+{{ $pages := .RegularPages.ByDate.Reverse }}
+<div class="max-w-5xl mx-auto px-6 py-12" data-pagefind-body>
+  <h1 class="text-4xl font-bold text-gray-900 mb-6">{{ .Title }}</h1>
+  <div class="prose prose-slate max-w-none mb-6">{{ .Content }}</div>
+  <a class="text-primary-700 underline underline-offset-4" href="{{ "uploads/publications.bib" | relURL }}" download>Download all citations in BibTeX</a>
+  <form id="publication-filters" class="mt-8 mb-6 grid grid-cols-1 md:grid-cols-3 gap-4" role="search" aria-label="Filter publications" hidden>
+    <div><label class="block font-semibold mb-2" for="publication-search">Title, author or journal</label><input id="publication-search" type="search" class="w-full border border-gray-300 rounded-lg p-3" placeholder="Search publications"></div>
+    <div><label class="block font-semibold mb-2" for="publication-year">Year</label><select id="publication-year" class="w-full border border-gray-300 rounded-lg p-3"><option value="">All years</option>{{ range $pages.GroupByDate "2006" }}<option value="{{ .Key }}">{{ .Key }}</option>{{ end }}</select></div>
+    <div><label class="block font-semibold mb-2" for="publication-type">Publication type</label><select id="publication-type" class="w-full border border-gray-300 rounded-lg p-3"><option value="">All types</option><option value="article-journal">Journal articles</option><option value="chapter">Book chapters</option><option value="paper-conference">Conference papers</option></select></div>
+    <button class="text-primary-700 underline text-left" type="reset">Clear filters</button>
+  </form>
+  <p id="publication-count" class="my-6 text-gray-600" role="status" aria-live="polite">{{ len $pages }} publications</p>
+  {{ range $pages.GroupByDate "2006" }}
+  <section class="mb-10 publication-year-group" aria-labelledby="year-{{ .Key }}">
+    <h2 id="year-{{ .Key }}" class="text-2xl font-bold text-gray-900 border-b border-gray-200 pb-3 mb-5">{{ .Key }}</h2>
+    {{ range .Pages }}
+    <article class="publication-record py-4 border-b border-gray-100" data-year="{{ .Date.Format "2006" }}" data-type="{{ index .Params.publication_types 0 }}">
+      {{ partial "views/citation.html" (dict "item" .) }}
+      <p class="text-sm text-gray-500">{{ if eq (index .Params.publication_types 0) "chapter" }}Book chapter{{ else if eq (index .Params.publication_types 0) "paper-conference" }}Conference paper{{ else }}Journal article{{ end }}</p>
+    </article>
+    {{ end }}
+  </section>
+  {{ end }}
+  <p id="publication-empty" class="my-8 text-gray-600" hidden>No publications match these filters. Try another term or clear the filters.</p>
+</div>
+{{ $script := resources.Get "js/publication-filters.js" | minify | fingerprint }}
+<script src="{{ $script.RelPermalink }}" integrity="{{ $script.Data.Integrity }}" defer></script>
+{{ end }}

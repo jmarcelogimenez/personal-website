@@ -1,0 +1,13 @@
+{{/* Reuse the native biography, changing only the generated portrait crop.
+     Top anchoring retains the headroom in the supplied portrait; the native
+     Center crop removes it before the circular mask is applied. */}}
+{{ $html := partial "hbx/blocks/resume-biography-3/block.html" . }}
+{{ $profile := partial "functions/get_author_profile" .wcBlock.content.username }}
+{{ with $profile.avatar }}
+  {{ $sizes := dict "small" "300" "medium" "400" "large" "640" "xl" "800" "xxl" "1000" }}
+  {{ $size := index $sizes ($.wcBlock.design.avatar.size | default "large") | default "640" }}
+  {{ $center := .Fill (printf "%sx%s Center" $size $size) }}
+  {{ $top := .Fill (printf "%sx%s Top" $size $size) }}
+  {{ $html = replace $html $center.RelPermalink $top.RelPermalink }}
+{{ end }}
+{{ $html | safeHTML }}

@@ -16,38 +16,49 @@ postnominals:
 role: Associate Research Professor
 
 bio: |
-  I am an Associate Research Professor at the International
-  Centre for Numerical Methods in Engineering (CIMNE),
-  Barcelona, Spain.
+  I am an Associate Research Professor at the International Centre for Numerical
+  Methods in Engineering (CIMNE), Barcelona, Spain. My research focuses on
+  computational mechanics, computational fluid dynamics and scientific computing,
+  with an emphasis on numerical methods for high-fidelity simulation of complex flows.
 
-  My research focuses on computational mechanics,
-  computational fluid dynamics and scientific computing,
-  with an emphasis on developing numerical methods for
-  high-fidelity simulation of complex fluid flows.
+  A central thread of my work is multiscale modelling: connecting the evolution of
+  large-scale flows to the fine-scale physics that shapes their behaviour. I have
+  contributed to the development of Pseudo-Direct Numerical Simulation (P-DNS),
+  including formulations for turbulent boundary layers and particle-laden flows.
+  These methods aim to make detailed flow simulation computationally affordable
+  while retaining the influence of small-scale interactions.
 
-  A central direction of my work is multiscale modelling,
-  particularly Pseudo-Direct Numerical Simulation (P-DNS),
-  which couples coarse-scale flow evolution with
-  representative fine-scale problems.
+  My broader work encompasses particle-based numerical methods, multiphase flows,
+  external aerodynamics and data-driven flow modelling. I develop and implement
+  computational tools that connect numerical research with applications in energy,
+  infrastructure and industrial processes, alongside supervising doctoral research
+  and leading collaborative projects.
 
-  My research also encompasses particle-based numerical
-  methods, multiphase flows and data-driven modelling.
-  More recently, I have initiated a research direction
-  in quantum computational mechanics, developing quantum
-  spectral formulations for incompressible flow and
-  exploring quantum-classical multiscale simulation.
+  Building on this trajectory, I am developing a research direction in quantum
+  computational mechanics, particularly quantum spectral methods for incompressible
+  flow and quantum–classical multiscale simulation. This work explores how quantum
+  algorithms can complement established computational approaches to fluid mechanics.
 
 affiliations:
   - name: CIMNE
     url: https://cimne.com/
 
 links:
+  - icon: hero/envelope
+    url: mailto:jmgimenez@cimne.upc.edu
+    label: Email
   - icon: brands/github
     url: https://github.com/jmarcelogimenez
     label: GitHub
   - icon: academicons/orcid
     url: https://orcid.org/0000-0002-8989-7357
     label: ORCID
+  - icon: academicons/scopus
+    url: https://www.scopus.com/authid/detail.uri?authorId=54883806800
+    label: Scopus
+  - icon: academicons/researcherid
+    url: https://www.webofscience.com/wos/author/record/B-4592-2012
+    label: Web of Science
 
 interests:
   - Computational Fluid Dynamics
@@ -59,15 +70,15 @@ interests:
 education:
   - degree: PhD in Engineering, Computational Mechanics
     institution: Universidad Nacional del Litoral
-    end: 2015-11-13
+    year: '2015'
 
-  - degree: MSc in Engineering
+  - degree: MSc in Computation
     institution: Universidad Nacional del Litoral
-    end: 2014-12-31
+    year: '2014'
 
   - degree: Informatics Engineering
     institution: Universidad Nacional del Litoral
-    end: 2011-12-31
+    year: '2011'
 
 experience:
   - role: Associate Research Professor
@@ -79,7 +90,6 @@ experience:
 
   - role: Corresponding Researcher
     org: CONICET
-    start: 2026-05-01
+    start: 2026-05-12
     summary: |
       Affiliated to CIMEC (Santa Fe, Argentina)
-    

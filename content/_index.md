@@ -1,127 +1,114 @@
 ---
-# Leave the homepage title empty to use the site title
+# Leave the title empty to use the site identity.
 title: ''
-summary: ''
+summary: 'Computational mechanics, fluid dynamics and multiscale modelling. Juan Marcelo Gimenez, Associate Research Professor at CIMNE, Barcelona.'
 date: 2022-10-24
 type: landing
 
 sections:
-  - block: resume-biography-3
+  - block: profile-biography
+    id: about
     content:
-      # Choose a user profile to display (a folder name within `content/authors/`)
       username: me
-      text: ''
-      # Show a call-to-action button under your biography? (optional)
-      button:
-        text: Download CV
-        url: uploads/resume.pdf
       headings:
-        about: ''
-        education: ''
-        interests: ''
+        about: About
+        education: Education
+        interests: Research interests
     design:
-      # Use the new Gradient Mesh which automatically adapts to the selected theme colors
+      spacing:
+        padding: ['3rem', '0', '3rem', '0']
       background:
         gradient_mesh:
-          enable: true
-
-      # Name heading sizing to accommodate long or short names
+          enable: false
       name:
-        size: md # Options: xs, sm, md, lg (default), xl
-
-      # Avatar customization
+        size: md
       avatar:
-        size: medium # Options: small (150px), medium (200px, default), large (320px), xl (400px), xxl (500px)
-        shape: circle # Options: circle (default), square, rounded
-  - block: markdown
+        size: medium
+        shape: circle
+
+  - block: research-showcase
+    id: research
     content:
-      title: '📚 My Research'
-      subtitle: ''
+      title: Research
+      subtitle: Numerical methods that connect scales, physics and computational platforms.
+      items:
+        - title: Multiscale modelling and turbulent flows
+          label: Pseudo-Direct Numerical Simulation
+          icon: hero/globe-alt
+          companion_image: research/pdns-canonical-model.png
+          companion_alt: 'Multiscale P-DNS model coupling a coarse mesh to bulk and wall representative volume elements through dimensionless inputs, inertial stresses and wall shear stress.'
+          image: research/pdns.png
+          alt: 'Vortical wake structures behind a full-scale Siemens 2.3 MW wind turbine simulated with P-DNS.'
+          caption: 'Bulk and wall RVEs coupled to the coarse-scale flow (left); full-scale wind-turbine wake (right). PC Iberia 2026, PDF pages 14–15.'
+          text: 'I develop multiscale formulations connecting coarse-scale flow evolution with representative fine-scale problems. My contributions to P-DNS address turbulent boundary layers, particle-laden flows and fine-scale dynamics, with applications in aerodynamics and energy.'
+          url: https://doi.org/10.1016/j.cma.2026.119194
+          link_text: Explore the wind-turbine study
+        - title: Numerical methods for complex flows
+          label: Multiphase flows and scientific computing
+          icon: hero/beaker
+          image: research/coating.png
+          alt: 'Two views of an automotive panel during an electrostatic powder-coating simulation, with a colour scale and spray-gun parameters.'
+          caption: 'Electrostatic powder coating on an automotive panel. PC Iberia 2026, slide 20.'
+          text: 'I combine particle-based methods, multiphase modelling and scientific software development to improve simulation accuracy and efficiency, from incompressible free-surface flows to particulate processes and wind engineering.'
+          url: https://doi.org/10.1007/s40571-023-00703-w
+          link_text: See the powder-coating study
+        - title: Quantum computational mechanics
+          label: An emerging research direction
+          icon: hero/cpu-chip
+          companion_image: research/quantum-circuit.png
+          companion_alt: 'Quantum circuit for homogenized kinetic energy, with wave-number, component and ancilla registers, Fourier transforms, rotations, scaling and measurements.'
+          image: research/quantum.png
+          alt: 'Magnitude of an RVE-inspired periodic velocity fluctuation field at a resolution of 512 by 512, with its colour scale.'
+          caption: 'Quantum circuit for homogenized kinetic energy (left); periodic velocity fluctuations at N = 512 (right). PC Iberia 2026, PDF pages 24–25.'
+          text: 'I develop quantum spectral methods for incompressible flow and explore quantum–classical multiscale simulation. This direction builds on my experience in numerical methods and coarse–fine coupling within computational mechanics.'
+          url: https://doi.org/10.1016/j.cma.2026.119453
+          link_text: Read the quantum spectral study
+    design:
+      spacing:
+        padding: ['3rem', '0', '3rem', '0']
+
+  - block: markdown
+    id: leadership
+    content:
+      title: Research leadership
       text: |-
-        Use this area to speak to your mission. I'm a research scientist in the Moonshot team at DeepMind. I blog about machine learning, deep learning, and moonshots.
-
-        I apply a range of qualitative and quantitative methods to comprehensively investigate the role of science and technology in the economy.
-
-        Please reach out to collaborate 😃
+        I lead and co-lead competitively funded research projects and supervise doctoral work in multiscale aerodynamics, particle-based CFD and multiscale thermo-mechanics. As Coordinator of the ERCOFTAC Iberian Pilot Centre, I help connect academic and industrial communities in flow, turbulence and combustion. My work also includes mentoring researchers and leading the development of computational tools for technology transfer.
     design:
       columns: '1'
-  - block: collection
+
+  - block: markdown
     id: papers
     content:
-      title: Featured Publications
-      filters:
-        folders:
-          - publications
-        featured_only: true
-    design:
-      view: article-grid
-      columns: 2
-  - block: collection
-    content:
-      title: Recent Publications
-      text: ''
-      filters:
-        folders:
-          - publications
-        exclude_featured: false
-    design:
-      view: citation
-  - block: collection
-    id: talks
-    content:
-      title: Recent & Upcoming Talks
-      filters:
-        folders:
-          - events
-    design:
-      view: card
-  - block: collection
-    id: news
-    content:
-      title: Recent News
-      subtitle: ''
-      text: ''
-      # Page type to display. E.g. post, talk, publication...
-      page_type: blog
-      # Choose how many pages you would like to display (0 = all pages)
-      count: 10
-      # Filter on criteria
-      filters:
-        author: ''
-        category: ''
-        tag: ''
-        exclude_featured: false
-        exclude_future: false
-        exclude_past: false
-        publication_type: ''
-      # Choose how many pages you would like to offset by
-      offset: 0
-      # Page order: descending (desc) or ascending (asc) date.
-      order: desc
-    design:
-      # Choose a layout view
-      view: card
-      # Reduce spacing
-      spacing:
-        padding: [0, 0, 0, 0]
-  - block: cta-card
-    demo: true # Only display this section in the HugoBlox Kit demo site
-    content:
-      title: 👉 Build your own academic website like this
+      title: Selected publications
       text: |-
-        This site is generated by HugoBlox Kit - the FREE, Hugo-based open source website builder trusted by 250,000+ academics like you.
+        **A multiscale Pseudo-DNS approach for solving turbulent boundary-layer problems**
 
-        <a class="github-button" href="https://github.com/HugoBlox/kit" data-color-scheme="no-preference: light; light: light; dark: dark;" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star HugoBlox/kit on GitHub">Star</a>
+        J. M. Gimenez, F. M. Sívori, A. E. Larreteguy, S. I. Montaño, H. J. Aguerre, N. M. Nigro and S. R. Idelsohn. *Computer Methods in Applied Mechanics and Engineering*, **437**, 117804 (2025). [DOI: 10.1016/j.cma.2025.117804](https://doi.org/10.1016/j.cma.2025.117804)
 
-        Easily build anything with blocks - no-code required!
+        **Multiscale simulation of electrostatic powder coating sprays**
 
-        From landing pages, second brains, and courses to academic resumés, conferences, and tech blogs.
-      button:
-        text: Get Started
-        url: https://hugoblox.com/templates/
+        J. M. Gimenez. *Computational Particle Mechanics*, **11**, 1441–1461 (2024). [DOI: 10.1007/s40571-023-00703-w](https://doi.org/10.1007/s40571-023-00703-w)
+
+        **A quantum spectral solver for periodic incompressible Stokes flow**
+
+        J. M. Gimenez, F. Cirak and M. Ortiz. *Computer Methods in Applied Mechanics and Engineering*, **463**, 119453 (2027). [DOI: 10.1016/j.cma.2026.119453](https://doi.org/10.1016/j.cma.2026.119453)
+
+        [Browse all publications](publications/)
     design:
-      card:
-        # Card background color (CSS class)
-        css_class: 'bg-gradient-to-br from-primary-500 via-primary-600 to-secondary-600 text-white shadow-2xl'
-        css_style: ''
+      columns: '1'
+
+  - block: markdown
+    id: contact
+    content:
+      title: Contact
+      text: |-
+        Juan Marcelo Gimenez — Associate Research Professor
+
+        International Centre for Numerical Methods in Engineering (CIMNE), Barcelona, Spain.
+
+        [jmgimenez@cimne.upc.edu](mailto:jmgimenez@cimne.upc.edu)
+
+        [ORCID](https://orcid.org/0000-0002-8989-7357) · [Scopus](https://www.scopus.com/authid/detail.uri?authorId=54883806800) · [Web of Science](https://www.webofscience.com/wos/author/record/B-4592-2012) · [GitHub](https://github.com/jmarcelogimenez)
+    design:
+      columns: '1'
 ---

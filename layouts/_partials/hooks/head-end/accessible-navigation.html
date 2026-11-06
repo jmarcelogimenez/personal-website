@@ -1,0 +1,38 @@
+{{/* Enhance the existing Hugo Blox mobile menu without replacing its markup. */}}
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggle = document.getElementById('nav-toggle');
+    const control = document.querySelector('label[for="nav-toggle"]');
+    const menu = document.getElementById('nav-menu');
+    if (!toggle || !control || !menu) return;
+
+    control.setAttribute('role', 'button');
+    control.setAttribute('tabindex', '0');
+    control.setAttribute('aria-controls', menu.id);
+    const update = () => {
+      control.setAttribute('aria-expanded', String(toggle.checked));
+      control.setAttribute('aria-label', toggle.checked ? 'Close menu' : 'Open menu');
+    };
+    toggle.addEventListener('change', update);
+    control.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        control.click();
+      }
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && toggle.checked) {
+        toggle.checked = false;
+        update();
+        control.focus();
+      }
+    });
+    menu.addEventListener('click', (event) => {
+      if (event.target.closest('a')) {
+        toggle.checked = false;
+        update();
+      }
+    });
+    update();
+  });
+</script>

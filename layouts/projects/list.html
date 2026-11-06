@@ -1,0 +1,26 @@
+{{ define "main" }}
+<div class="max-w-6xl mx-auto px-6 py-12" data-pagefind-body>
+  <h1 class="text-4xl font-bold text-gray-900 mb-6">{{ .Title }}</h1>
+  <div class="prose prose-slate max-w-3xl mb-10">{{ .Content }}</div>
+  {{ range $group := slice "leadership" "collaboration" }}
+  <section class="mb-14" aria-labelledby="{{ $group }}">
+    <div class="flex items-center gap-3 mb-6">
+      <span class="text-primary-700" aria-hidden="true">{{ partial "functions/get_icon" (dict "name" (cond (eq $group "leadership") "hero/academic-cap" "hero/user-group") "attributes" "class=\"w-7 h-7\"") }}</span>
+      <h2 id="{{ $group }}" class="text-2xl font-bold text-gray-900">{{ if eq $group "leadership" }}Principal investigator & co-principal investigator{{ else }}Other research collaborations{{ end }}</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    {{ range (where $.RegularPages "Params.project_group" $group).ByDate.Reverse }}
+      <article class="border border-gray-200 rounded-xl bg-white p-6 shadow-sm flex flex-col">
+        <div class="flex flex-wrap items-center gap-3 mb-4"><span class="text-sm font-semibold text-primary-700 bg-primary-50 rounded-full px-3 py-1">{{ .Params.role }}</span><span class="text-sm text-gray-500">{{ .Params.start_year }}{{ if ne .Params.start_year .Params.end_year }}–{{ .Params.end_year }}{{ end }}</span></div>
+        <h3 class="text-xl font-bold text-gray-900 mb-3"><a href="{{ .RelPermalink }}" class="hover:underline">{{ .Params.short_title }}</a></h3>
+        <p class="text-gray-600 leading-relaxed mb-4">{{ .Params.summary }}</p>
+        <p class="text-sm text-gray-500 mb-2">{{ .Params.funder }}</p>
+        <p class="text-sm text-gray-500 break-words">{{ .Params.reference }}</p>
+        <a href="{{ .RelPermalink }}" class="mt-5 text-primary-700 font-semibold underline underline-offset-4">Project details <span class="sr-only">for {{ .Params.short_title }}</span> <span aria-hidden="true">→</span></a>
+      </article>
+    {{ end }}
+    </div>
+  </section>
+  {{ end }}
+</div>
+{{ end }}

@@ -1,0 +1,15 @@
+{{ define "main" }}
+<article class="max-w-4xl mx-auto px-6 py-12" data-pagefind-body>
+  <a href="{{ .Parent.RelPermalink }}" class="text-primary-700 underline underline-offset-4">← All projects</a>
+  <div class="flex flex-wrap gap-3 items-center mt-8 mb-4"><span class="text-primary-700 bg-primary-50 px-3 py-1 rounded-full font-semibold">{{ .Params.role }}</span><span class="text-gray-500">{{ .Params.start_year }}{{ if ne .Params.start_year .Params.end_year }}–{{ .Params.end_year }}{{ end }}</span></div>
+  <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight mb-8">{{ .Title }}</h1>
+  <dl class="grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-3 border-y border-gray-200 py-6 mb-8">
+    <dt class="font-semibold">Project reference</dt><dd class="md:col-span-2 break-words">{{ .Params.reference }}</dd>
+    <dt class="font-semibold">Funding programme</dt><dd class="md:col-span-2">{{ .Params.funder }}</dd>
+    <dt class="font-semibold">Institution / participation</dt><dd class="md:col-span-2">{{ .Params.institution }}</dd>
+    {{ with .Params.collaborators }}<dt class="font-semibold">Investigators / partners</dt><dd class="md:col-span-2">{{ . }}</dd>{{ end }}
+  </dl>
+  <div class="prose prose-slate max-w-none">{{ .Content }}</div>
+  {{ with .Params.project_url }}<a href="{{ . }}" class="inline-block mt-6 text-primary-700 underline underline-offset-4" target="_blank" rel="noopener">Project website ↗</a>{{ end }}
+</article>
+{{ end }}

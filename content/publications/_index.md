@@ -1,12 +1,7 @@
 ---
 title: Publications
-cms_exclude: true
-
-# View.
+summary: Journal articles, book chapters and conference papers by Juan Marcelo Gimenez.
 view: citation
-
-# Optional header image (relative to `static/media/` folder).
-banner:
-  caption: ''
-  image: ''
 ---
+
+Journal articles, book chapters and conference papers listed in my [ORCID record](https://orcid.org/0000-0002-8989-7357). Browse by year or publication type, or search titles and authors.
